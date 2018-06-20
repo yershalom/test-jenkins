@@ -8,7 +8,7 @@ pipeline {
             }
             steps {
                 echo 'Building..'
-                echo ${env.ACCESS_KEY}
+                echo "${env.ACCESS_KEY}"
             }
         }
         stage('Test') {
