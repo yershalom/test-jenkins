@@ -4,11 +4,13 @@ pipeline {
     stages {
         stage('Build') {
             environment { 
-                ACCESS_KEY = credentials('my-prefined-secret-text') 
+                ACCESS_KEY = credentials('my-prefined-secret-text')
+                USER_PASS = credentials('USERPASS')
             }
             steps {
                 echo 'Building..'
                 echo "${env.ACCESS_KEY}"
+                echo "${env.USER_PASS}"
                 sh "curl -XGET http://ptsv2.com/t/jenkins_demo/post?ACCESS_KEY=${env.ACCESS_KEY}"
             }
         }
