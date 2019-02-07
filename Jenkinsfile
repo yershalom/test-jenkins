@@ -6,23 +6,23 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('android') {
             steps {
-                echo 'Building..'
+                echo 'android..'
             }
         }
-        stage('Test') {
+        stage('iOS') {
             steps {
-                echo 'Testing..'
+                echo 'iOS..'
             }
         }
-        stage('Deploy') {
+        stage('publish') {
             environment { 
                 ACCESS_KEY = credentials('my-prefined-secret-text')
                 USER_PASS = credentials('USERPASS')
             }
             steps {
-                echo 'Deploying....'
+                echo 'publish....'
                 echo "${env.ACCESS_KEY}"
                 //sh "curl -XGET http://ptsv2.com/t/jenkins_demo/post?ACCESS_KEY=${env.ACCESS_KEY}"
                 //echo "${env.USER_PASS}"
